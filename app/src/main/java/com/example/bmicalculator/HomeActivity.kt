@@ -1,26 +1,34 @@
-package com.example.bmicalculator;
+package com.example.bmicalculator
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.example.bmicalculator.R
+import android.content.Intent
+import android.os.Handler
+import com.example.bmicalculator.MainActivity
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.CompoundButton
+import android.text.TextWatcher
+import android.text.Editable
+import com.example.bmicalculator.Main2Activity
+import com.example.bmicalculator.GraphActivity
+import com.example.bmicalculator.QuizActivity
+import com.example.bmicalculator.Questions
+import android.widget.Toast
+import com.example.bmicalculator.ScoreActivity
+import android.webkit.WebView
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class HomeActivity extends AppCompatActivity {
-    Handler handler;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-        handler=new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent=new Intent(HomeActivity.this,MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        },2000);
+class HomeActivity : AppCompatActivity() {
+    var handler: Handler? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_home)
+        handler = Handler()
+        handler!!.postDelayed(Runnable {
+            val intent = Intent(this@HomeActivity, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }, 2000)
     }
 }
